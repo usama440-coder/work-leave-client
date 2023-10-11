@@ -15,6 +15,9 @@ module.exports = {
       'xl': '1536px'
     },
     colors: {
+      'slate': {
+        50: '#f8fafc'
+      },
       'emerald': {
         500: '#128D6C'
       },

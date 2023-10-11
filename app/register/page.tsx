@@ -14,6 +14,7 @@ import {
   FormControlLabel,
   Checkbox,
   Typography,
+  Grid,
 } from "@mui/material";
 
 import Visibility from "@mui/icons-material/Visibility";
@@ -26,109 +27,113 @@ const Register = () => {
   return (
     <AuthLayout
       page="Sign Up"
-      description="Create a new account with email
-
-    "
+      description="Create a new account with email"
+      image="/img/register.png"
     >
       <Fragment>
-        <form>
-          <TextField
-            sx={{ m: 1, width: "100%", maxWidth: "27ch" }}
-            required
-            id="first-name"
-            label="First Name"
-          />
-          <TextField
-            sx={{ m: 1, width: "100%", maxWidth: "27ch" }}
-            required
-            id="last-name"
-            label="Last Name"
-          />
-          <TextField
-            sx={{ m: 1, maxWidth: "55.5ch" }}
-            required
-            id="email"
-            label="Email"
-            type="email"
-            fullWidth
-          />
-          <FormControl
-            required
-            sx={{ m: 1, maxWidth: "55.5ch" }}
-            variant="outlined"
-            fullWidth
-          >
-            <InputLabel htmlFor="outlined-adornment-password">
-              Password
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showPassword ? "text" : "password"}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={() => setShowPassword(!showPassword)}
-                    edge="end"
-                  >
-                    {!showPassword ? (
-                      <VisibilityOff sx={{ fontSize: "20px" }} />
-                    ) : (
-                      <Visibility sx={{ fontSize: "20px" }} />
-                    )}
-                  </IconButton>
-                </InputAdornment>
-              }
-              label="Password"
+        <Grid container spacing={1}>
+          <Grid item md={6} xs={12}>
+            <TextField
+              sx={{ width: "100%" }}
+              required
+              id="first-name"
+              label="First Name"
             />
-          </FormControl>
-          <FormControl
-            required
-            sx={{ m: 1, maxWidth: "55.5ch" }}
-            variant="outlined"
-            fullWidth
-          >
-            <InputLabel htmlFor="outlined-adornment-password-confirm">
-              Confirm Password
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password-confirm"
-              type={showPassword ? "text" : "password"}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={() => setShowPassword(!showPassword)}
-                    edge="end"
-                  >
-                    {!showPassword ? (
-                      <VisibilityOff sx={{ fontSize: "20px" }} />
-                    ) : (
-                      <Visibility sx={{ fontSize: "20px" }} />
-                    )}
-                  </IconButton>
-                </InputAdornment>
-              }
-              label="Password"
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <TextField
+              sx={{ width: "100%" }}
+              required
+              id="last-name"
+              label="Last Name"
             />
-          </FormControl>
-          <FormGroup sx={{ m: 1 }}>
-            <FormControlLabel
-              control={<Checkbox size="small" />}
-              label={
-                <div>
-                  <span>I have read and agree to the </span>
-                  <Link href="https://www.google.com">terms of use.</Link>
-                </div>
-              }
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              required
+              id="email"
+              label="Email"
+              type="email"
+              fullWidth
             />
-          </FormGroup>
-          <PrimaryBtn text="Sign up" />
-          <Typography sx={{ m: 1, alignSelf: "flex-start" }} variant="body1">
-            Already have an account?
-            <Link href="/"> Sign in instead.</Link>
-          </Typography>
-        </form>
+          </Grid>
+          <Grid item xs={12}>
+            <FormControl required variant="outlined" fullWidth>
+              <InputLabel htmlFor="outlined-adornment-password">
+                Password
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-password"
+                type={showPassword ? "text" : "password"}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={() => setShowPassword(!showPassword)}
+                      edge="end"
+                    >
+                      {!showPassword ? (
+                        <VisibilityOff sx={{ fontSize: "20px" }} />
+                      ) : (
+                        <Visibility sx={{ fontSize: "20px" }} />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Password"
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={12}>
+            <FormControl required variant="outlined" fullWidth>
+              <InputLabel htmlFor="outlined-adornment-password-confirm">
+                Confirm Password
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-password-confirm"
+                type={showPassword ? "text" : "password"}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={() => setShowPassword(!showPassword)}
+                      edge="end"
+                    >
+                      {!showPassword ? (
+                        <VisibilityOff sx={{ fontSize: "20px" }} />
+                      ) : (
+                        <Visibility sx={{ fontSize: "20px" }} />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Password"
+              />
+            </FormControl>
+          </Grid>
+          <Grid item xs={12}>
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox size="small" />}
+                label={
+                  <div>
+                    <span>I have read and agree to the </span>
+                    <Link href="https://www.google.com">terms of use.</Link>
+                  </div>
+                }
+              />
+            </FormGroup>
+          </Grid>
+          <Grid item xs={12}>
+            <PrimaryBtn text="Sign Up" variant="contained" />
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="body1">
+              Already have an account?
+              <Link href="/login"> Sign in instead.</Link>
+            </Typography>
+          </Grid>
+        </Grid>
       </Fragment>
     </AuthLayout>
   );

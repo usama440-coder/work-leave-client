@@ -7,9 +7,33 @@
 }
 
 .authBox {
-    @apply bg-gray-500 mx-auto max-w-screen-lg  flex justify-center shadow-xl rounded-lg overflow-hidden
+    @apply bg-gray-500 mx-auto w-96 md:w-full max-w-screen-lg flex justify-center shadow-xl rounded-lg overflow-hidden 
 }
 
 .formContainer {
-    @apply flex-1 px-5 py-3 border-2 relative flex flex-col items-center
+    @apply flex-1 px-8 py-5 border-2 relative flex flex-col items-center
+}
+
+.logo {
+    @apply mb-16 
+}
+
+.page {
+    @apply absolute left-0 top-28 bg-emerald-500 text-slate-50 px-4 py-2
+}
+
+.greeting {
+    @apply text-center
+}
+
+.description {
+    @apply text-center mb-3
+}
+
+.imgContainer {
+    @apply flex-1 hidden md:block 
+}
+
+.vectorImage {
+    @apply h-full object-cover w-full 
 }
