@@ -3,8 +3,7 @@
 import { Fragment } from "react";
 import PrimaryBtn from "../components/PrimaryBtn";
 import AuthLayout from "../components/AuthLayout/AuthLayout";
-import { TextField, Typography, Grid } from "@mui/material";
-import Link from "next/link";
+import { Typography, Grid } from "@mui/material";
 import { MuiOtpInput } from "mui-one-time-password-input";
 import { useState } from "react";
 

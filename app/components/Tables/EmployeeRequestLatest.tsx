@@ -1,44 +1,17 @@
 "use client";
 
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import { Chip } from "@mui/material";
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.common.black,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-function createData(
-  id: string,
-  name: string,
-  duration: number,
-  date: string,
-  comment: string,
-  status: string
-) {
-  return { id, name, duration, date, comment, status };
-}
-
-const rows = [
-  createData("1111", "John Doe", 3, "1 May - 4 May", "issue", "pending"),
-  createData("1112", "John Doe", 3, "1 May - 4 May", "issue", "pending"),
-  createData("1113", "John Doe", 3, "1 May - 4 May", "issue", "rejected"),
-  createData("1114", "John Doe", 3, "1 May - 4 May", "issue", "pending"),
-  createData("1115", "John Doe", 3, "1 May - 4 May", "issue", "approved"),
-];
+import {
+  Table,
+  TableBody,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Chip,
+} from "@mui/material";
+import { StyledTableCell } from "./style";
+import { employeeRequest } from "../../utils/data/employeeRequest";
 
 const EmployeeRequestLatest = () => {
   return (
@@ -55,7 +28,7 @@ const EmployeeRequestLatest = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {employeeRequest.map((row) => (
             <TableRow key={row.id}>
               <StyledTableCell component="th" scope="row">
                 {row.id}

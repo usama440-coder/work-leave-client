@@ -1,38 +1,18 @@
 "use client";
 
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import {
+  Table,
+  TableBody,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Chip,
+} from "@mui/material";
 import Link from "next/link";
-import { Chip } from "@mui/material";
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.common.black,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-function createData(id: string, employee: string, status: string) {
-  return { id, employee, status };
-}
-
-const rows = [
-  createData("1111", "John Doe", "pending"),
-  createData("1112", "John Doe", "rejected"),
-  createData("1113", "John Doe", "pending"),
-  createData("1114", "John Doe", "approved"),
-  createData("1115", "John Doe", "pending"),
-];
+import { StyledTableCell } from "./style";
+import { employees } from "../../utils/data/employees";
 
 const NewJoiner = () => {
   return (
@@ -47,12 +27,12 @@ const NewJoiner = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {employees.map((row) => (
             <TableRow key={row.id}>
               <StyledTableCell component="th" scope="row">
                 {row.id}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.employee}</StyledTableCell>
+              <StyledTableCell align="right">{row.name}</StyledTableCell>
               <StyledTableCell align="right">
                 <Chip
                   size="small"

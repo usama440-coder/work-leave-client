@@ -7,7 +7,6 @@ export const theme = createTheme({
       color: '#128D6C'
     },
     h5: {
-      marginBottom: '20px',
       fontWeight: 500
     }
   },

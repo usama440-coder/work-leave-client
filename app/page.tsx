@@ -13,6 +13,7 @@ const Home = () => {
       <ResponsiveDrawer>
         <div className={styles.chartsContainer}>
           <Typography variant="h5">Leave Chart Flow</Typography>
+          <br />
           <div className={styles.charts}>
             <div className={`${styles.lineChart} ${styles.chart}`}>
               <LineChart />
@@ -23,12 +24,14 @@ const Home = () => {
           </div>
         </div>
 
-        <div className={`${styles.dashboardTable}`}>
+        <div className={styles.dashboardTable}>
           <Typography variant="h5">Employee Request</Typography>
+          <br />
           <EmployeeRequestLatest />
         </div>
-        <div className={`${styles.dashboardTable}`}>
+        <div className={styles.dashboardTable}>
           <Typography variant="h5">New Joiners</Typography>
+          <br />
           <NewJoiner />
         </div>
       </ResponsiveDrawer>

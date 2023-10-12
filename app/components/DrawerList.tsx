@@ -17,7 +17,7 @@ const links = [
   },
   {
     text: "Employees",
-    path: "/",
+    path: "/employees",
     icon: <CalendarMonthRoundedIcon />,
   },
   {
@@ -27,7 +27,7 @@ const links = [
   },
   {
     text: "Leaves to Approve",
-    path: "/",
+    path: "/leaves",
     icon: <CheckCircleRoundedIcon />,
   },
 ];

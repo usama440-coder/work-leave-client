@@ -16,5 +16,5 @@
 }
 
 .dashboardTable {
-    @apply mt-8
+    @apply mt-8 pb-6
 }
