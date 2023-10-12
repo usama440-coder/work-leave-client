@@ -1,0 +1,81 @@
+"use client";
+
+import * as React from "react";
+import { styled } from "@mui/material/styles";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import Link from "next/link";
+import { Chip } from "@mui/material";
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.common.black,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+function createData(id: string, employee: string, status: string) {
+  return { id, employee, status };
+}
+
+const rows = [
+  createData("1111", "John Doe", "pending"),
+  createData("1112", "John Doe", "rejected"),
+  createData("1113", "John Doe", "pending"),
+  createData("1114", "John Doe", "approved"),
+  createData("1115", "John Doe", "pending"),
+];
+
+const NewJoiner = () => {
+  return (
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>Id</StyledTableCell>
+            <StyledTableCell align="right">Employee</StyledTableCell>
+            <StyledTableCell align="right">Status</StyledTableCell>
+            <StyledTableCell align="right"></StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow key={row.id}>
+              <StyledTableCell component="th" scope="row">
+                {row.id}
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.employee}</StyledTableCell>
+              <StyledTableCell align="right">
+                <Chip
+                  size="small"
+                  variant="outlined"
+                  color={
+                    row.status === "pending"
+                      ? "warning"
+                      : row.status === "approved"
+                      ? "success"
+                      : "error"
+                  }
+                  label={row.status}
+                />
+              </StyledTableCell>
+              <StyledTableCell align="right" size="small">
+                <Link href="/">Details</Link>
+              </StyledTableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+};
+
+export default NewJoiner;

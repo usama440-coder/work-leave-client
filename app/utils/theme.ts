@@ -1,6 +1,16 @@
 import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
+  typography: {
+    h4: {
+      marginBottom: '20px',
+      color: '#128D6C'
+    },
+    h5: {
+      marginBottom: '20px',
+      fontWeight: 500
+    }
+  },
     palette: {
       primary: {
         main: '#128D6C',

@@ -8,7 +8,7 @@ const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 const LineChart = () => {
   const option = {
     chart: {
-      id: "apexchart-example",
+      id: "line-chart",
     },
     stroke: {
       show: true,
@@ -41,8 +41,8 @@ const LineChart = () => {
         type="line"
         options={option}
         series={series}
-        height={400}
-        width={700}
+        height="100%"
+        width={"100%"}
       />
     </>
   );

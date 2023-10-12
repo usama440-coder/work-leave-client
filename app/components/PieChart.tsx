@@ -4,9 +4,12 @@ import dynamic from "next/dynamic";
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const PieChart = () => {
-  const option = {
+  const chartOption = {
     dataLabels: {
       enabled: false,
+    },
+    legend: {
+      position: "bottom",
     },
     labels: ["Vacation", "Sick", "Unpaid"],
   };
@@ -17,10 +20,10 @@ const PieChart = () => {
     <>
       <ApexChart
         type="donut"
-        options={option}
+        options={chartOption}
         series={series}
-        width="500"
-        height={500}
+        width="100%"
+        height="100%"
       />
     </>
   );

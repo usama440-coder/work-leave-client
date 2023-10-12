@@ -1,0 +1,20 @@
+
+.charts{
+    @apply flex gap-10 justify-between min-h-[450px] h-full
+}
+
+.chart {
+    @apply p-10 bg-gray-500 rounded-lg
+}
+
+.lineChart {
+    @apply flex-[2]
+}
+
+.pieChart {
+    @apply flex-[1]
+}
+
+.dashboardTable {
+    @apply mt-8
+}
