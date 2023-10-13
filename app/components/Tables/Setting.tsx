@@ -14,8 +14,15 @@ import BorderColorRoundedIcon from "@mui/icons-material/BorderColorRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import { StyledTableCell } from "./style";
 import { settings } from "../../utils/data/settings";
+import EditSettingsModal from "../modals/EditSettings";
 
 const SettingsTable = () => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleEditSettings = () => {
+    setOpen(true);
+  };
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -37,7 +44,7 @@ const SettingsTable = () => {
                 <IconButton size="small">
                   <DeleteRoundedIcon color="error" fontSize="small" />
                 </IconButton>
-                <IconButton size="small">
+                <IconButton size="small" onClick={handleEditSettings}>
                   <BorderColorRoundedIcon color="primary" fontSize="small" />
                 </IconButton>
               </StyledTableCell>
@@ -45,6 +52,7 @@ const SettingsTable = () => {
           ))}
         </TableBody>
       </Table>
+      <EditSettingsModal open={open} setOpen={setOpen} />
     </TableContainer>
   );
 };

@@ -1,14 +1,14 @@
 import { Fragment } from "react";
 import ResponsiveDrawer from "../components/Drawer/Drawer";
-import EmployeeTable from "../components/Tables/Employee";
 import Header from "./Header";
+import CompanyTable from "../components/Tables/Company";
 
 const Employee = () => {
   return (
     <Fragment>
       <ResponsiveDrawer>
         <Header />
-        <EmployeeTable />
+        <CompanyTable />
       </ResponsiveDrawer>
     </Fragment>
   );

@@ -5,14 +5,25 @@ import { Button } from "@mui/material";
 interface PrimaryBtn {
   text: String;
   variant: "contained" | "outlined" | "text";
+  size?: "small" | "medium" | "large";
+  fullWidth?: boolean;
+  handleBtn?: () => void;
 }
 
-const PrimaryBtn = ({ text, variant }: PrimaryBtn) => {
+const PrimaryBtn = ({
+  text,
+  variant,
+  size,
+  fullWidth,
+  handleBtn,
+}: PrimaryBtn) => {
   return (
     <Button
+      onClick={handleBtn}
       sx={{ my: 2, alignSelf: "flex-start" }}
       variant={variant}
-      size="large"
+      size={size}
+      fullWidth={fullWidth}
     >
       {text}
     </Button>

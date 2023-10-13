@@ -12,9 +12,9 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountMenu from "../Menu/Menu";
-import { drawer } from "../DrawerList";
+import DrawerList from "../DrawerList";
 
-const drawerWidth = 240;
+const drawerWidth = 280;
 
 interface Props {
   children: React.ReactNode;
@@ -79,7 +79,7 @@ const ResponsiveDrawer = (props: Props) => {
             },
           }}
         >
-          {drawer}
+          <DrawerList />
         </Drawer>
 
         {/* persistent drawer */}
@@ -94,7 +94,7 @@ const ResponsiveDrawer = (props: Props) => {
           }}
           open
         >
-          {drawer}
+          <DrawerList />
         </Drawer>
       </Box>
 

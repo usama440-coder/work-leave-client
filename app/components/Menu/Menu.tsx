@@ -1,14 +1,17 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
+import {
+  Box,
+  Avatar,
+  Menu,
+  MenuItem,
+  ListItemIcon,
+  Divider,
+  IconButton,
+  Tooltip,
+} from "@mui/material";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
+import Link from "next/link";
 
 const AccountMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -31,7 +34,7 @@ const AccountMenu = () => {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            <Avatar sx={{ width: 32, height: 32 }}>US</Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -40,7 +43,6 @@ const AccountMenu = () => {
         id="account-menu"
         open={open}
         onClose={handleClose}
-        onClick={handleClose}
         PaperProps={{
           elevation: 0,
           sx: {
@@ -70,14 +72,14 @@ const AccountMenu = () => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleClose} component={Link} href="/profile">
           <Avatar /> Profile
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleClose} component={Link} href="/company">
           <Avatar /> Company
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleClose} component={Link} href="/settings">
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>

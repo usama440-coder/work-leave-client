@@ -1,13 +1,19 @@
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import Toolbar from "@mui/material/Toolbar";
+"use client";
+
+import {
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Toolbar,
+} from "@mui/material";
 import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
 import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 import EditCalendarRoundedIcon from "@mui/icons-material/EditCalendarRounded";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const links = [
   {
@@ -17,12 +23,12 @@ const links = [
   },
   {
     text: "Employees",
-    path: "/employees",
+    path: "/employee",
     icon: <CalendarMonthRoundedIcon />,
   },
   {
     text: "My Leaves",
-    path: "/",
+    path: "/my-leaves",
     icon: <EditCalendarRoundedIcon />,
   },
   {
@@ -32,20 +38,33 @@ const links = [
   },
 ];
 
-export const drawer = (
-  <div>
-    <Toolbar />
-    <List>
-      {links.map((link) => {
-        return (
-          <ListItem key={link.text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{link.icon}</ListItemIcon>
-              <ListItemText primary={link.text} />
-            </ListItemButton>
-          </ListItem>
-        );
-      })}
-    </List>
-  </div>
-);
+const DrawerList = () => {
+  const path = usePathname();
+
+  return (
+    <div>
+      <Toolbar />
+      <List>
+        {links.map((link) => {
+          return (
+            <ListItem
+              component={Link}
+              href={link.path}
+              key={link.text}
+              disablePadding
+              selected={path === link.path}
+              sx={{ color: "black" }}
+            >
+              <ListItemButton>
+                <ListItemIcon>{link.icon}</ListItemIcon>
+                <ListItemText primary={link.text} />
+              </ListItemButton>
+            </ListItem>
+          );
+        })}
+      </List>
+    </div>
+  );
+};
+
+export default DrawerList;
